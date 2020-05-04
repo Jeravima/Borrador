@@ -5,35 +5,87 @@
  */
 package borrador;
 
-import Metodos_sql.Metodos_sql;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import Metodos_sql.ConexionBD;
+import java.awt.event.KeyEvent;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import javax.sql.rowset.CachedRowSet;
 
 /**
  *
- * @author Carlos Felipe
+ * @author Estructura de Datos D1
  */
 public class Frm_login extends javax.swing.JFrame {
 
     /**
      * Creates new form Frm_login
      */
+    ConexionBD cc = new ConexionBD();
+    Connection con = cc.conectar();
+    String nombre;
+    private Object cmdAceptar;
+
     public Frm_login() {
         initComponents();
+        setTitle("NOTI-PAZ");
+        setSize(460, 430);
         setLocationRelativeTo(null);
-        ((JPanel)getContentPane()).setOpaque(false);
-        ImageIcon uno=new ImageIcon(this.getClass().getResource("/imagenes/Login_1.png"));
-        JLabel fondo= new JLabel();
+        // Con esto seleccionamos la imagen de fondo de nuestro programa
+        ((JPanel) getContentPane()).setOpaque(false);
+        ImageIcon uno = new ImageIcon(this.getClass().getResource("/imagenes/Login_1.png"));
+        JLabel fondo = new JLabel();
         fondo.setIcon(uno);
-        getLayeredPane().add(fondo,JLayeredPane.FRAME_CONTENT_LAYER);
-        fondo.setBounds(0,0,uno.getIconWidth(),uno.getIconHeight());
-        
+        getLayeredPane().add(fondo, JLayeredPane.FRAME_CONTENT_LAYER);
+        fondo.setBounds(0, 0, uno.getIconWidth(), uno.getIconHeight());
+
+    }
+
+    public void validarusuario() {
+
+        int resultado = 0;
+        String pass = String.valueOf(txtPass.getPassword());
+        String usuario = txtUsuario.getText();
+        String SQL = "select * from docentes where usuarios_docentes='" + usuario + "' and contrasena_docentes='" + pass + "';";
+
+        try {
+
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(SQL);
+
+            if (rs.next()) {
+
+                resultado = 1;
+
+                if (resultado == 1) {
+
+                    Frm_menu form = new Frm_menu();
+                    form.setVisible(true);
+
+                    this.dispose();
+
+                    JOptionPane.showMessageDialog(this, "Bienvenido " + usuario);
+                    nombre = usuario;
+
+                }
+
+            } else {
+
+                JOptionPane.showMessageDialog(null, "Error de acceso, Usuario no encontrado ");
+
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error" + e.getMessage());
+        }
+
     }
     
-    Metodos_sql metodos = new Metodos_sql();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -46,8 +98,8 @@ public class Frm_login extends javax.swing.JFrame {
 
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txtCorreo = new javax.swing.JTextField();
-        txtContraseña = new javax.swing.JPasswordField();
+        txtUsuario = new javax.swing.JTextField();
+        txtPass = new javax.swing.JPasswordField();
         btnentrar = new javax.swing.JButton();
         btnregresar = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
@@ -67,18 +119,23 @@ public class Frm_login extends javax.swing.JFrame {
         jLabel3.setText("CONTRASEÑA ");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
 
-        txtCorreo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        txtCorreo.setBorder(null);
-        txtCorreo.addActionListener(new java.awt.event.ActionListener() {
+        txtUsuario.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        txtUsuario.setBorder(null);
+        txtUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCorreoActionPerformed(evt);
+                txtUsuarioActionPerformed(evt);
             }
         });
-        getContentPane().add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 191, 22));
+        getContentPane().add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 191, 22));
 
-        txtContraseña.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        txtContraseña.setBorder(null);
-        getContentPane().add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 191, 22));
+        txtPass.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        txtPass.setBorder(null);
+        txtPass.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtPassKeyPressed(evt);
+            }
+        });
+        getContentPane().add(txtPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 191, 22));
 
         btnentrar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnentrar.setText("ENTRAR");
@@ -118,27 +175,13 @@ public class Frm_login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoActionPerformed
+    private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCorreoActionPerformed
+    }//GEN-LAST:event_txtUsuarioActionPerformed
 
     private void btnentrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnentrarActionPerformed
-           
-      String busqueda_usuario =  metodos.buscarUsarioregistrado(txtCorreo.getText(),txtContraseña.getText());
-        if (txtCorreo.getText().equals("root")&& txtContraseña.getText().equals("root")){
-            
-            JOptionPane.showMessageDialog(this, "Bienvenido iniciaste como ADMINISTRADOR");
-            Frm_menu ventana = new Frm_menu();
-            ventana.setVisible(true);
-            this.dispose();
-            
-        }else{
-            
-            JOptionPane.showMessageDialog(this, "Bienvenido iniciaste como "+txtCorreo.getText());
-           Frm_menu ventana = new Frm_menu();
-            ventana.setVisible(true);
-            this.dispose();
-        }
+
+        validarusuario();
     }//GEN-LAST:event_btnentrarActionPerformed
 
     private void btnregresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregresarActionPerformed
@@ -147,8 +190,16 @@ public class Frm_login extends javax.swing.JFrame {
     }//GEN-LAST:event_btnregresarActionPerformed
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-       System.exit(0);
+        System.exit(0);
     }//GEN-LAST:event_jLabel1MouseClicked
+
+    private void txtPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPassKeyPressed
+        
+        
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            
+        }
+    }//GEN-LAST:event_txtPassKeyPressed
 
     /**
      * @param args the command line arguments
@@ -193,7 +244,7 @@ public class Frm_login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JPasswordField txtContraseña;
-    private javax.swing.JTextField txtCorreo;
+    private javax.swing.JPasswordField txtPass;
+    private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }

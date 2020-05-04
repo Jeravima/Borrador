@@ -1,20 +1,18 @@
-    /*
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
- * and open the template in ttablahe editor.
+ * and open the template in the editor.
  */
 package Metodos_sql;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-
+import javax.sql.rowset.CachedRowSet;
 /**
  *
- * @author Carlos Felipe
+ * @author Estructura de Datos D1
  */
-public class Metodos_sql {
-    
+public class ConexionPos {
     public static ConexionBD conexion = new ConexionBD();
     
     public static PreparedStatement sentencia_preparada;
@@ -120,11 +118,13 @@ public class Metodos_sql {
         
         
     }
-        
-        
-}
-    
-    
-    
-    
 
+    public CachedRowSet Function(String select_id_estudiantes_nombre_estudiantesa) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
+    
+    
+    
+}

@@ -16,7 +16,7 @@ public class Borrador {
      */
     public static void main(String[] args) {
         
-        Frm_login.main(args);
+        Frm_menu.main(args);
         
     }
     
