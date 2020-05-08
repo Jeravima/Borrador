@@ -130,6 +130,11 @@ public class Frm_login extends javax.swing.JFrame {
 
         txtPass.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtPass.setBorder(null);
+        txtPass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPassActionPerformed(evt);
+            }
+        });
         txtPass.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtPassKeyPressed(evt);
@@ -170,7 +175,7 @@ public class Frm_login extends javax.swing.JFrame {
                 jLabel1MouseClicked(evt);
             }
         });
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 0, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -195,11 +200,17 @@ public class Frm_login extends javax.swing.JFrame {
 
     private void txtPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPassKeyPressed
         
-        
+        String usuario = txtUsuario.getText();
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
             
+            JOptionPane.showMessageDialog(this, "Bienvenido " + usuario);
+                    nombre = usuario;
         }
     }//GEN-LAST:event_txtPassKeyPressed
+
+    private void txtPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPassActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPassActionPerformed
 
     /**
      * @param args the command line arguments

@@ -7,7 +7,7 @@ package borrador;
 
 /**
  *
- * @author Carlos Felipe
+ * @author Estructura de Datos D1
  */
 public class Borrador {
 
