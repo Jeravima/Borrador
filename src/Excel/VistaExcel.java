@@ -1,21 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Excel;
-
-/**
- *
- * @author JeanCarlos
- */
+import Excel.ControladorExcel;
 public class VistaExcel extends javax.swing.JFrame {
 
-    /**
-     * Creates new form VistaExcel
-     */
     public VistaExcel() {
         initComponents();
+        setSize(800, 500);
+        setLocationRelativeTo(null);
+
     }
 
     /**
@@ -31,17 +22,21 @@ public class VistaExcel extends javax.swing.JFrame {
         btnExportar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         DatosExcel = new javax.swing.JTable();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
-        btnImportar.setText("Importar");
+        btnImportar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnImportar.setText("IMPORTAR");
         btnImportar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnImportarActionPerformed(evt);
             }
         });
 
-        btnExportar.setText("Exportar");
+        btnExportar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnExportar.setText("EXPORTAR");
 
         DatosExcel.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -51,41 +46,58 @@ public class VistaExcel extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        DatosExcel.setToolTipText("");
         jScrollPane1.setViewportView(DatosExcel);
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/x-regular-36.png"))); // NOI18N
+        jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel4MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel4))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 781, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnImportar, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(56, 56, 56)
-                        .addComponent(btnExportar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 334, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addGap(38, 38, 38)
+                        .addComponent(btnExportar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 21, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addGap(56, 56, 56)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnImportar)
-                    .addComponent(btnExportar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(btnExportar)
+                    .addComponent(btnImportar))
+                .addGap(42, 42, 42)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(175, 175, 175))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnImportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImportarActionPerformed
-        
+
     }//GEN-LAST:event_btnImportarActionPerformed
+
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_jLabel4MouseClicked
 
     /**
      * @param args the command line arguments
@@ -116,17 +128,17 @@ public class VistaExcel extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new VistaExcel().setVisible(true);
-            }
-        });
+        ModeloExcel ModeloEX = new ModeloExcel();
+        VistaExcel VistaEX = new VistaExcel();
+        ControladorExcel ControlExcel = new ControladorExcel(VistaEX, ModeloEX);
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JTable DatosExcel;
     public javax.swing.JButton btnExportar;
     public javax.swing.JButton btnImportar;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

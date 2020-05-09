@@ -5,26 +5,20 @@
  */
 package Excel;
 
-import Excel.ControladorExcel;
-import Excel.ModeloExcel;
-import Excel.VistaExcel;
 
-/**
- *
- * @author JeanCarlos
- */
+
 //CREAMOS UNA LIBRERIA E IMPORTAMOS LOS ARCHIVOS
 public class ImportarExportarExcel {
 
-    /**
-     * @param args the command line arguments
-     */
+    
     public static void main(String[] args) {
         // TODO code application logic here
-        ModeloExcel ModeloEX=new ModeloExcel();
-        VistaExcel VistaEX=new VistaExcel();
-        ControladorExcel ControlExcel=new ControladorExcel(VistaEX, ModeloEX);
+        
         //EJECUTAMOS DESDE EL MAIN
+    }
+
+    public void setVisible(boolean b) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

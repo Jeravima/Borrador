@@ -113,11 +113,11 @@ public class Frm_login extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setText("USUARIO ");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 138, 127, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 127, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setText("CONTRASEÑA ");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, -1, -1));
 
         txtUsuario.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtUsuario.setBorder(null);
@@ -187,6 +187,9 @@ public class Frm_login extends javax.swing.JFrame {
     private void btnentrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnentrarActionPerformed
 
         validarusuario();
+        Frm_menu ventana = new Frm_menu();
+        ventana.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnentrarActionPerformed
 
     private void btnregresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregresarActionPerformed

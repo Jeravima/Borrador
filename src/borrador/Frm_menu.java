@@ -10,6 +10,10 @@ import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import AppPackage.AnimationClass;
+import Excel.VistaExcel;
+import Excel.ControladorExcel;
+
 
 /**
  *
@@ -22,14 +26,15 @@ public class Frm_menu extends javax.swing.JFrame {
      */
     public Frm_menu() {
         initComponents();
+        setSize(487, 460);
         setLocationRelativeTo(null);
-        ((JPanel)getContentPane()).setOpaque(false);
-        ImageIcon uno=new ImageIcon(this.getClass().getResource("/imagenes/Menu_1.png"));
-        JLabel fondo= new JLabel();
+        ((JPanel) getContentPane()).setOpaque(false);
+        ImageIcon uno = new ImageIcon(this.getClass().getResource("/imagenes/Menu_1.png"));
+        JLabel fondo = new JLabel();
         fondo.setIcon(uno);
-        getLayeredPane().add(fondo,JLayeredPane.FRAME_CONTENT_LAYER);
-        fondo.setBounds(0,0,uno.getIconWidth(),uno.getIconHeight());
-        
+        getLayeredPane().add(fondo, JLayeredPane.FRAME_CONTENT_LAYER);
+        fondo.setBounds(0, 0, uno.getIconWidth(), uno.getIconHeight());
+
     }
 
     /**
@@ -42,12 +47,13 @@ public class Frm_menu extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel_Config = new javax.swing.JLabel();
+        jLabel_Cerrar = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox();
+        jButton1 = new javax.swing.JButton();
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/x-regular-24.png"))); // NOI18N
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -59,32 +65,16 @@ public class Frm_menu extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("NOTI-PAZ");
         setUndecorated(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton1.setText("MATERIAS");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/menu-regular-36.png"))); // NOI18N
+        jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
             }
         });
-
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton2.setText("CERRAR SESION");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
-        jButton3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton3.setText("CONFIGURACION");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/menu-regular-24.png"))); // NOI18N
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/x-regular-36.png"))); // NOI18N
         jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -93,68 +83,53 @@ public class Frm_menu extends javax.swing.JFrame {
                 jLabel4MouseClicked(evt);
             }
         });
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(451, 0, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel4))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(185, 185, 185)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(158, 158, 158)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(160, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 204, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
-                .addGap(79, 79, 79))
-        );
+        jLabel_Config.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel_Config.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_Config.setText("CONFIGURACION");
+        jLabel_Config.setAlignmentX(-100.0F);
+        jLabel_Config.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel_Config.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_ConfigMouseClicked(evt);
+            }
+        });
+        getContentPane().add(jLabel_Config, new org.netbeans.lib.awtextra.AbsoluteConstraints(-95, 47, -1, -1));
+
+        jLabel_Cerrar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel_Cerrar.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_Cerrar.setText("CERRAR SESION");
+        jLabel_Cerrar.setAlignmentX(-100.0F);
+        jLabel_Cerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel_Cerrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_CerrarMouseClicked(evt);
+            }
+        });
+        getContentPane().add(jLabel_Cerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(-95, 79, 92, -1));
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel7.setText("ASIGNATURAS ");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 214, -1, -1));
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "Matematicas III D1", "Estructura de Datos D1", "Fisica II D!", "Algebra Lineal D1", " " }));
+        jComboBox1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 170, -1));
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/search-regular-24.png"))); // NOI18N
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 200, -1, 40));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-              Frm_3 ventana = new Frm_3();
-            ventana.setVisible(true);
-            this.dispose(); 
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        
-            Frm_login ventana = new Frm_login();
-            ventana.setVisible(true);
-            this.dispose();
-            JOptionPane.showMessageDialog(null, "Cerrando sesion");
-            
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        Frm_menu_1 ventana = new Frm_menu_1();
-            ventana.setVisible(true);
-            this.dispose();
-    }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
         System.exit(0);
@@ -163,6 +138,38 @@ public class Frm_menu extends javax.swing.JFrame {
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
         System.exit(0);
     }//GEN-LAST:event_jLabel4MouseClicked
+    //Metodo para la animacion del menu 
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+        AnimationClass Configuracion = new AnimationClass();
+        Configuracion.jLabelXRight(-95, 10, 10, 5, jLabel_Config);
+        AnimationClass Configuracioon = new AnimationClass();
+        Configuracioon.jLabelXLeft(10, -95, 10, 5, jLabel_Config);
+
+        AnimationClass Cerrar = new AnimationClass();
+        Cerrar.jLabelXRight(-95, 10, 10, 5, jLabel_Cerrar);
+        AnimationClass Cerraar = new AnimationClass();
+        Cerraar.jLabelXLeft(10, -95, 10, 5, jLabel_Cerrar);
+
+    }//GEN-LAST:event_jLabel5MouseClicked
+
+    private void jLabel_ConfigMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ConfigMouseClicked
+        Frm_menu_1 ventana = new Frm_menu_1();
+        ventana.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jLabel_ConfigMouseClicked
+
+    private void jLabel_CerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_CerrarMouseClicked
+        Frm_login ventana = new Frm_login();
+        ventana.setVisible(true);
+        this.dispose();
+        JOptionPane.showMessageDialog(null, "Cerrando sesion");
+    }//GEN-LAST:event_jLabel_CerrarMouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        VistaExcel ventana = new VistaExcel();
+        ventana.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -201,11 +208,12 @@ public class Frm_menu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel_Cerrar;
+    private javax.swing.JLabel jLabel_Config;
     // End of variables declaration//GEN-END:variables
 }
