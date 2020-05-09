@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 import AppPackage.AnimationClass;
 import Excel.VistaExcel;
 import Excel.ControladorExcel;
+import Excel.ModeloExcel;
 
 
 /**
@@ -166,8 +167,9 @@ public class Frm_menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel_CerrarMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        VistaExcel ventana = new VistaExcel();
-        ventana.setVisible(true);
+        ModeloExcel ModeloEX=new ModeloExcel();
+            VistaExcel VistaEX=new VistaExcel();
+            ControladorExcel ControlExcel=new ControladorExcel(VistaEX, ModeloEX);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 

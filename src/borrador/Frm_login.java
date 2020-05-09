@@ -85,7 +85,6 @@ public class Frm_login extends javax.swing.JFrame {
         }
 
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -119,7 +118,7 @@ public class Frm_login extends javax.swing.JFrame {
         jLabel3.setText("CONTRASEÑA ");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, -1, -1));
 
-        txtUsuario.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        txtUsuario.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtUsuario.setBorder(null);
         txtUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -202,12 +201,15 @@ public class Frm_login extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel1MouseClicked
 
     private void txtPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPassKeyPressed
-        
+
         String usuario = txtUsuario.getText();
-        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
-            
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+
             JOptionPane.showMessageDialog(this, "Bienvenido " + usuario);
-                    nombre = usuario;
+            nombre = usuario;
+            Frm_menu ventana = new Frm_menu();
+            ventana.setVisible(true);
+            this.dispose();
         }
     }//GEN-LAST:event_txtPassKeyPressed
 
