@@ -15,7 +15,6 @@ import Excel.VistaExcel;
 import Excel.ControladorExcel;
 import Excel.ModeloExcel;
 
-
 /**
  *
  * @author Carlos Felipe
@@ -66,6 +65,16 @@ public class Frm_menu extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("NOTI-PAZ");
         setUndecorated(true);
+        addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                formMouseDragged(evt);
+            }
+        });
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                formMousePressed(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/menu-regular-36.png"))); // NOI18N
@@ -167,11 +176,29 @@ public class Frm_menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel_CerrarMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        ModeloExcel ModeloEX=new ModeloExcel();
-            VistaExcel VistaEX=new VistaExcel();
-            ControladorExcel ControlExcel=new ControladorExcel(VistaEX, ModeloEX);
+        ModeloExcel ModeloEX = new ModeloExcel();
+        VistaExcel VistaEX = new VistaExcel();
+        ControladorExcel ControlExcel = new ControladorExcel(VistaEX, ModeloEX);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+    /**
+     * Codigo para mover el programa por la pantalla
+     *
+     * @param evt
+     */
+    int xx;
+    int yy;
+    private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed
+        xx = evt.getX();
+        yy = evt.getY();
+    }//GEN-LAST:event_formMousePressed
+
+    private void formMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseDragged
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+
+        this.setLocation(x - xx, y - yy);
+    }//GEN-LAST:event_formMouseDragged
 
     /**
      * @param args the command line arguments

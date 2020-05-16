@@ -34,11 +34,13 @@ public class Frm_login extends javax.swing.JFrame {
     public Frm_login() {
         initComponents();
         setTitle("NOTI-PAZ");
-        setSize(460, 430);
+        setSize(440, 520);
         setLocationRelativeTo(null);
+        PlaceHolder usuario = new PlaceHolder("USUARIO", txtUsuario);
+        PlaceHolder password = new PlaceHolder("CONTRASEÑA", txtPass);
         // Con esto seleccionamos la imagen de fondo de nuestro programa
         ((JPanel) getContentPane()).setOpaque(false);
-        ImageIcon uno = new ImageIcon(this.getClass().getResource("/imagenes/Login_1.png"));
+        ImageIcon uno = new ImageIcon(this.getClass().getResource("/imagenes/460.png"));
         JLabel fondo = new JLabel();
         fondo.setIcon(uno);
         getLayeredPane().add(fondo, JLayeredPane.FRAME_CONTENT_LAYER);
@@ -106,17 +108,28 @@ public class Frm_login extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
         setMinimumSize(new java.awt.Dimension(460, 432));
         setUndecorated(true);
+        addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                formMouseDragged(evt);
+            }
+        });
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                formMousePressed(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel2.setText("USUARIO ");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 127, -1));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/user-solid-24.png"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, 30, 30));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel3.setText("CONTRASEÑA ");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, -1, -1));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/key-solid-24.png"))); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, 30, 20));
 
         txtUsuario.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtUsuario.setBorder(null);
@@ -125,10 +138,11 @@ public class Frm_login extends javax.swing.JFrame {
                 txtUsuarioActionPerformed(evt);
             }
         });
-        getContentPane().add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 191, 22));
+        getContentPane().add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 191, 20));
 
-        txtPass.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        txtPass.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtPass.setBorder(null);
+        txtPass.setPreferredSize(new java.awt.Dimension(51, 15));
         txtPass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPassActionPerformed(evt);
@@ -139,7 +153,7 @@ public class Frm_login extends javax.swing.JFrame {
                 txtPassKeyPressed(evt);
             }
         });
-        getContentPane().add(txtPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 191, 22));
+        getContentPane().add(txtPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, 190, 20));
 
         btnentrar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnentrar.setText("ENTRAR");
@@ -148,7 +162,7 @@ public class Frm_login extends javax.swing.JFrame {
                 btnentrarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnentrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, 115, -1));
+        getContentPane().add(btnentrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 420, 115, -1));
 
         btnregresar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnregresar.setText("SALIR");
@@ -157,15 +171,15 @@ public class Frm_login extends javax.swing.JFrame {
                 btnregresarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnregresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 350, 115, -1));
+        getContentPane().add(btnregresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 420, 115, -1));
 
         jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
-        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 190, 10));
+        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 318, 190, -1));
 
         jSeparator2.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
-        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 190, 10));
+        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 248, 190, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/x-regular-36.png"))); // NOI18N
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -214,8 +228,21 @@ public class Frm_login extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPassKeyPressed
 
     private void txtPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPassActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_txtPassActionPerformed
+    int xx;
+    int yy;
+    private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed
+        xx = evt.getX();
+        yy = evt.getY();
+    }//GEN-LAST:event_formMousePressed
+
+    private void formMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseDragged
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+
+        this.setLocation(x - xx, y - yy);
+    }//GEN-LAST:event_formMouseDragged
 
     /**
      * @param args the command line arguments
