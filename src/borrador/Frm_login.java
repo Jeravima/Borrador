@@ -36,6 +36,7 @@ public class Frm_login extends javax.swing.JFrame {
         setTitle("NOTI-PAZ");
         setSize(440, 520);
         setLocationRelativeTo(null);
+        //Creacion del objeto para mostrar texto en las textfields
         PlaceHolder usuario = new PlaceHolder("USUARIO", txtUsuario);
         PlaceHolder password = new PlaceHolder("CONTRASEÑA", txtPass);
         // Con esto seleccionamos la imagen de fondo de nuestro programa
@@ -234,6 +235,7 @@ public class Frm_login extends javax.swing.JFrame {
     private void txtPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPassActionPerformed
 
     }//GEN-LAST:event_txtPassActionPerformed
+    //Esto sirve para mover el programa por toda la pantalla con el mouse
     int xx;
     int yy;
     private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed
