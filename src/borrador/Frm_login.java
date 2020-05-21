@@ -103,7 +103,6 @@ public class Frm_login extends javax.swing.JFrame {
         txtUsuario = new javax.swing.JTextField();
         txtPass = new javax.swing.JPasswordField();
         btnentrar = new javax.swing.JButton();
-        btnregresar = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
@@ -157,22 +156,22 @@ public class Frm_login extends javax.swing.JFrame {
         getContentPane().add(txtPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, 190, 20));
 
         btnentrar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnentrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/log-in-regular-36.png"))); // NOI18N
         btnentrar.setText("ENTRAR");
+        btnentrar.setBorderPainted(false);
+        btnentrar.setContentAreaFilled(false);
+        btnentrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnentrar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnentrar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/log-in-regular-36.png"))); // NOI18N
+        btnentrar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/log-in-regular-48.png"))); // NOI18N
+        btnentrar.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnentrar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btnentrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnentrarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnentrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 420, 115, -1));
-
-        btnregresar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnregresar.setText("SALIR");
-        btnregresar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnregresarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnregresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 420, 115, -1));
+        getContentPane().add(btnentrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 380, 115, -1));
 
         jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
@@ -189,7 +188,7 @@ public class Frm_login extends javax.swing.JFrame {
                 jLabel1MouseClicked(evt);
             }
         });
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 0, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -205,11 +204,6 @@ public class Frm_login extends javax.swing.JFrame {
         ventana.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnentrarActionPerformed
-
-    private void btnregresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregresarActionPerformed
-
-        System.exit(0);
-    }//GEN-LAST:event_btnregresarActionPerformed
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
         System.exit(0);
@@ -283,7 +277,6 @@ public class Frm_login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnentrar;
-    private javax.swing.JButton btnregresar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
