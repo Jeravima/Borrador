@@ -11,6 +11,8 @@ import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import Metodos_sql.ConexionBD;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -48,6 +50,10 @@ public class Frm_login extends javax.swing.JFrame {
         fondo.setBounds(0, 0, uno.getIconWidth(), uno.getIconHeight());
 
     }
+   /** public Image getIconImage(){
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("/imagenes/icono.png"));
+        return retValue;
+    } */
 
     public void validarusuario() {
 
@@ -109,6 +115,7 @@ public class Frm_login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
+        setIconImage(getIconImage());
         setMinimumSize(new java.awt.Dimension(460, 432));
         setUndecorated(true);
         addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {

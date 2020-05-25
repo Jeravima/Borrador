@@ -54,6 +54,9 @@ public class Frm_menu extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox();
         jButton1 = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        jComboBox2 = new javax.swing.JComboBox();
+        jButton2 = new javax.swing.JButton();
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/x-regular-24.png"))); // NOI18N
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -120,12 +123,12 @@ public class Frm_menu extends javax.swing.JFrame {
         getContentPane().add(jLabel_Cerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(-95, 79, 92, -1));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel7.setText("ASIGNATURAS ");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 214, -1, -1));
+        jLabel7.setText("MOSTRARA ALUMNOS ");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, -1, -1));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "Matematicas III D1", "Estructura de Datos D1", "Fisica II D!", "Algebra Lineal D1", " " }));
         jComboBox1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 170, -1));
+        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 260, 170, -1));
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/search-regular-24.png"))); // NOI18N
@@ -141,7 +144,31 @@ public class Frm_menu extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 190, 70, 60));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 240, 60, 60));
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel8.setText("INGRESAR NOTAS ");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 214, -1, -1));
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "Matematicas III D1", "Estructura de Datos D1", "Fisica II D!", "Algebra Lineal D1", " " }));
+        jComboBox2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 170, -1));
+
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/search-regular-24.png"))); // NOI18N
+        jButton2.setBorderPainted(false);
+        jButton2.setContentAreaFilled(false);
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton2.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/search-regular-24.png"))); // NOI18N
+        jButton2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/search-regular-36 (1).png"))); // NOI18N
+        jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 190, 70, 60));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -181,9 +208,8 @@ public class Frm_menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel_CerrarMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        ModeloExcel ModeloEX = new ModeloExcel();
-        VistaExcel VistaEX = new VistaExcel();
-        ControladorExcel ControlExcel = new ControladorExcel(VistaEX, ModeloEX);
+        Mostrar_alumnos alumnos = new Mostrar_alumnos();
+        alumnos.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
     /**
@@ -204,6 +230,13 @@ public class Frm_menu extends javax.swing.JFrame {
 
         this.setLocation(x - xx, y - yy);
     }//GEN-LAST:event_formMouseDragged
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        ModeloExcel ModeloEX = new ModeloExcel();
+        VistaExcel VistaEX = new VistaExcel();
+        ControladorExcel ControlExcel = new ControladorExcel(VistaEX, ModeloEX);
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -242,11 +275,14 @@ public class Frm_menu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JComboBox jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel_Cerrar;
     private javax.swing.JLabel jLabel_Config;
     // End of variables declaration//GEN-END:variables
